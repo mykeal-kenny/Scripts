@@ -34,3 +34,17 @@ function py_latest () {
 function pyenv_reset () {
     pyenv shell --unset
 }
+
+function qgit (){
+    git add . &&\
+    git commit -m $1 &&\
+    git push
+}
+
+function ngit () {
+    git init &&\
+    hub create &&\
+    git add . &&\
+    git commit -m "INIT" &&\
+    git push -u origin master
+}
