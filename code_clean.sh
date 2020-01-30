@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
+echo "Running CodeClean Dependency cleaner!\n"
 
-typeset -A args_array
-
-args_array=(
+typeset -A args_array=(
     "NodeJS" "node_modules"
     "Python" "__pycache__"
     )
@@ -11,12 +10,15 @@ args_array=(
 typeset -A cleanup_count
 typeset -a dir_array
 
-
 function find_deps () {
+    echo "Finding:\n"
     for k v in ${(kv)args_array[@]};do
-        echo "Looking for $v in SOURCE/$k/...."
+        echo "    $v in $k/...\n"
         dir_array+=( $( find $SOURCE/$k -type d -name $v -prune ) )
     done
+}
+
+function count_deps () {
     lang_list_array=( $( echo ${(u)dir_array} | tr " " "\n" | cut -d "/" -f 5 ) )
     lang_uniq=( ${(u)lang_list_array} )
     for lang in $lang_uniq; do
@@ -25,9 +27,9 @@ function find_deps () {
 }
 
 function delete_deps () {
-        for dir in $dir_array; do
-            eval "$( rm -r $dir )"
-        done
+    for dir in $dir_array; do
+        eval "$( rm -r $dir )"
+    done
     }
 
 function summary_of_work (){
@@ -38,9 +40,8 @@ function summary_of_work (){
 }
 
 find_deps
-if [[ $#dir_array = 0 ]];
-then
-    echo "Found nothing to clean!"
+if [ $#dir_array = 0 ];then
+    echo "\nFound nothing to clean!"
 else
-    delete_deps && summary_of_work
+    count_depts && delete_deps && summary_of_work
 fi
