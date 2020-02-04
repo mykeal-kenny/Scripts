@@ -11,12 +11,13 @@ export DOCKER_SRC="$SOURCE/docker"
 export PG_DB_DEV="$SOURCE/docker/postgres_dev_db"
 export C_SRC="$SOURCE/C"
 export SQL_SRC="$SOURCE/SQL"
+export PY_INSTALL="$SOURCE/config/format/python"
 
 export NVM_VERSION=($( ls "$HOME/.nvm/versions/node" | sort -V | tail -1 ))
 export CUR_JDK=($( ls "/Library/Java/JavaVirtualMachines/" | sort -V | tail -1 ))
 export RUBY_HOME="$HOME/.rvm/bin"
 export PYENV_ROOT="$HOME/.pyenv"
-export NODE_HOME="$HOME/.nvm/versions/node/$NVM_VERSION/bin/node"
+export NODE_HOME="$HOME/.nvm/versions/node/$NVM_VERSION/bin/"
 export GOROOT="/usr/local/opt/go/libexec"
 export GO_SRC="$GOPATH"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/$CUR_JDK/Contents/Home"
@@ -30,8 +31,15 @@ PATH=$PATH:"/bin"
 PATH=$PATH:"/usr/sbin"
 PATH=$PATH:"/sbin"
 PATH=$PATH:"/usr/local/sbin"
+PATH=$PATH:"/opt/local/bin"
+PATH=$PATH:"/opt/local/sbin"
+PATH=$PATH:"/usr/local/opt/go/libexec/bin"
+PATH=$PATH:"/usr/local/MacGPG2/bin"
+PATH=$PATH:"/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core"
 PATH=$PATH:$RUBY_HOME
 PATH=$PATH:$PYENV_ROOT
+PATH=$PATH:$PY_INSTALL
+PATH=$PATH:$NVM_VERSION
 PATH=$PATH:$NODE_HOME
 PATH=$PATH:$GOROOT
 PATH=$PATH:$GO_SRC
@@ -54,4 +62,4 @@ PATH=$PATH:$RUBY_HOME
 
 typeset -aU path
 
-export PATH
+# "/Users/fireinjun/.nvm/versions/node/v10.15.3/bin"
