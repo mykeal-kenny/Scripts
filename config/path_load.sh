@@ -36,6 +36,7 @@ PATH=$PATH:"/opt/local/sbin"
 PATH=$PATH:"/usr/local/opt/go/libexec/bin"
 PATH=$PATH:"/usr/local/MacGPG2/bin"
 PATH=$PATH:"/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core"
+PATH=$PATH:"/Applications/Firefox.app/Contents/MacOS"
 PATH=$PATH:$RUBY_HOME
 PATH=$PATH:$PYENV_ROOT
 PATH=$PATH:$PY_INSTALL
